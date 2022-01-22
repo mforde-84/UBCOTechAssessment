@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
 using UBCO.Core.Services.Translation;
 using UBCO.Services.Translation;
 
