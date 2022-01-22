@@ -35,7 +35,7 @@ namespace UBCO.Services.Translation
                     else
                     {
                         if (character == 'Z' || character == 'z')
-                            translatedPhrase.Append(TransformZLetter(character)); // treat z's separately
+                            translatedPhrase.Append(TransformZLetter(character)); // treat 'z's separately
                         else
                         {
                             var nextLetter = (char)(character + 1);

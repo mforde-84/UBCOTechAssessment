@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "UBCOTechAssessment": {
+    "UBCO.Presentation.API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

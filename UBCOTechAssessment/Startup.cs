@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using UBCO.Services;
 
-namespace UBCOTechAssessment
+namespace UBCO.Presentation.API
 {
     public class Startup
     {
@@ -24,7 +24,7 @@ namespace UBCOTechAssessment
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UBCOTechAssessment", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UBCOTranslate", Version = "v1" });
             });
             ServiceFactory.ConfigureServices(services);
         }
@@ -36,7 +36,7 @@ namespace UBCOTechAssessment
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UBCOTechAssessment v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UBCOTranslate v1"));
             }
 
             app.UseHttpsRedirection();
