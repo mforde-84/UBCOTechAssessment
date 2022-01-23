@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UBCO.Core.Services.Translation;
+using UBCO.Core.Services.Translation.Models;
 
 namespace UBCO.Presentation.API.Controllers
 {
@@ -20,9 +21,9 @@ namespace UBCO.Presentation.API.Controllers
         /// <param name="originalText"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Translate([FromBody] string originalText)
+        public IActionResult Translate([FromBody] TranslationSourceText sourceText)
         {
-            var translatedText = _translationService.Translate(originalText);
+            var translatedText = _translationService.Translate(sourceText.Text);
             return Ok(translatedText);
         }
     }

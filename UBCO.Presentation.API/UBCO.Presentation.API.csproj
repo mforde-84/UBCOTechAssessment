@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UBCO.Services\UBCO.Services.csproj" />
+    <ProjectReference Include="..\UBCOTechAssessment\UBCO.Core\UBCO.Core.csproj" />
+    <ProjectReference Include="..\UBCOTechAssessment\UBCO.Services\UBCO.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -27,6 +27,16 @@ namespace UBCO.Presentation.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UBCOTranslate", Version = "v1" });
             });
             ServiceFactory.ConfigureServices(services);
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +54,8 @@ namespace UBCO.Presentation.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
