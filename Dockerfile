@@ -7,11 +7,11 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 ENV BuildingDocker true
 WORKDIR /UBCO.Presentation.API
-COPY ["UBCO.Presentation.API.csproj", ""]
-RUN dotnet restore "UBCO.Presentation.API.csproj"
+COPY ["/UBCO.Presentation.API/UBCO.Presentation.API.csproj", ""]
+RUN dotnet restore "/UBCO.Presentation.API/UBCO.Presentation.API.csproj"
 COPY . .
 WORKDIR "/UBCO.Presentation.API"
-RUN dotnet build "UBCO.Presentation.API.csproj" -c Release -o /app/build
+RUN dotnet build "/UBCO.Presentation.API/UBCO.Presentation.API.csproj" -c Release -o /app/build
 
 FROM node:12-alpine as build-node
 WORKDIR /ubco.ui
