@@ -7,6 +7,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 ENV BuildingDocker true
 WORKDIR /UBCO.Presentation.API
+COPY ../*.sln .
 COPY ["/UBCO.Presentation.API/UBCO.Presentation.API.csproj", ""]
 RUN dotnet restore "/UBCO.Presentation.API/UBCO.Presentation.API.csproj"
 COPY . .
