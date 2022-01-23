@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBCO.Services", "UBCO.Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBCO.Services.Tests", "UBCO.Services.Tests\UBCO.Services.Tests.csproj", "{B3F1CF2D-E645-49B8-B589-ED595236009A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBCO.Presentation.API", "..\UBCO.Presentation.API\UBCO.Presentation.API.csproj", "{66D64734-1DBA-4E77-BCEB-B227AB60848F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBCO.Presentation.API", "UBCO.Presentation.API\UBCO.Presentation.API.csproj", "{66D64734-1DBA-4E77-BCEB-B227AB60848F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
