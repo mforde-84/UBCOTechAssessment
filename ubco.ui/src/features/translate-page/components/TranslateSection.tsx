@@ -5,19 +5,17 @@ import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { TextField } from "@mui/material";
 import React, { useState } from "react";
+import axios from "axios";
 
 interface TextAreaProps {
   placeHolder: string;
   isReadOnly?: boolean | undefined;
+  value: string;
+  onChange? : (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function TextArea(props: TextAreaProps) {
-  const { placeHolder, isReadOnly } = props;
-  const [value, setValue] = useState("");
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
+  const { placeHolder, isReadOnly, value, onChange } = props;
 
   return (
     <Box
@@ -30,7 +28,7 @@ function TextArea(props: TextAreaProps) {
     >
       <TextField
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
         multiline
         rows={4}
         placeholder={placeHolder}
@@ -51,6 +49,25 @@ const Item = styled(Paper)(({ theme }) => ({
 const lightTheme = createTheme({ palette: { mode: "light" } });
 
 export default function TranslateSection() {
+  const [sourceValue, setSourceValue] = useState("");
+  const [targetValue, setTargetValue] = useState("");
+  
+  const handleSourceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSourceValue(event.target.value);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/Translation`, {
+      text: sourceValue
+    })
+    .then(function(response) {
+      setTargetValue(response.data)
+    })
+    .catch(function(error) {
+      console.log(`Error: ${error}`); //TODO - properly handle errors
+    });
+  };
+
   return (
     <>
       <Grid container spacing={2}>
@@ -67,12 +84,13 @@ export default function TranslateSection() {
                 }}
               >
                 <Item key="source" elevation={1}>
-                  <TextArea placeHolder="Hit me with some text" />
+                  <TextArea placeHolder="Hit me with some text" onChange={handleSourceChange} value={sourceValue} />
                 </Item>
                 <Item key="target" elevation={1}>
                   <TextArea
                     placeHolder="Awaiting translation..."
                     isReadOnly={true}
+                    value={targetValue}
                   />
                 </Item>
               </Box>
@@ -81,7 +99,9 @@ export default function TranslateSection() {
         ))}
       </Grid>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Button variant="contained">Translate</Button>
+        <Button variant="contained" onClick={handleClick} disabled={sourceValue.trim().length < 1}>
+          Translate
+        </Button>
       </Box>
     </>
   );
