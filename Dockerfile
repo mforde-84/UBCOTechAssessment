@@ -1,5 +1,5 @@
-ARG REPO=mcr.microsoft.com/dotnet/
-FROM $REPO/sdk:5.0 AS base
+ARG REPO=mcr.microsoft.com/dotnet/core
+FROM $REPO/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
