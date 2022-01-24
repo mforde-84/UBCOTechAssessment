@@ -56,7 +56,7 @@ I did investigate methods of trying to translate the string in place using regex
 The following is a list of things I can think of in no particular order that I would do in a production environment or if I had a little more time:
 + Implement exception handling.
 + Implement logging.
-+ Tidy React front-end - there are a few unused files in there, the UI is reasonable responsive but looks strange on smaller screens.
++ Tidy React front-end - there are a few unused files in there, and while the UI is reasonably responsive it looks strange on smaller screens.
 + Investigate how extendible the translation logic is if we wanted to add more languages, or convert from the Alien language (I've referred to it as 'Ublish') back into English.
 + Host it - I attempted to host this on Heroku, but had difficulties. One of the recommended ways to do so is buy adding a dockerfile and setting up a CI/CD pipeline using github actions to deploy to Heroku. I'm definitely not a docker expert so I suspect someone more knowledgeable could probably get this working in a matter of minutes, and my attempt to learn Docker late on a Sunday night proved unsuccessful 😞.
 + Currently the translation service doesn't handle multiline strings properly.
