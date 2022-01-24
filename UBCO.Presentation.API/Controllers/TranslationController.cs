@@ -18,7 +18,7 @@ namespace UBCO.Presentation.API.Controllers
         /// <summary>
         /// Translate a given string of text
         /// </summary>
-        /// <param name="originalText"></param>
+        /// <param name="sourceText"></param>
         /// <returns></returns>
         [HttpPost]
         public IActionResult Translate([FromBody] TranslationSourceText sourceText)
